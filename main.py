@@ -17,12 +17,12 @@ from bs4 import BeautifulSoup as bs
 # Пишем то, как будут запрашиваться данные
 headers = {
     'accept': '*/*',
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:45.0) Gecko/20100101 Firefox/45.0',
-    'cookie': 'remixstid=2096619183_185b024cf6e4a11ef7; remixflash=0.0.0; remixscreen_depth=24; remixscreen_orient=1; remixdt=7200; remixgp=e25ccb001e13fff8bb4412d17a39edcf; remixlang=0; remixusid=ZDkyNzhkYmQwNmIyMjQ3YjA2NmEyZDRl; remixab=1; remixff=10; remixsid=140760b71faf322fe860e40eda59bed44b548ed010198762c2d15bd0c905a; remixmdv=JVcnKgPLsog1ayJY; remixaudio_date=28-06-2019; remixaudio_background_play_time_=0; remixaudio_background_play_time_limit=1800; remixaudio_show_alert_today=0; remixseenads=0; remixmdevice=1920/1080/1/!!-!!!!'
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.157 Mobile Safari/537.36',
+    'cookie': 'remixmdevice=1920/1080/1/!!-!!!!;'
 }
 
 # Ссылка, с которой будут взяты данные
-base_url = input('Введите ссылку: \n')
+base_url = input('Введите ссылку на видео: \n')
 # print('Изменённая строка:', base_url.replace('https://', 'https://m.'))
 
 # Изменение ссылки на мобильную версию сайта
@@ -38,7 +38,7 @@ def vk_parse(base_url, headers):
         div = soup.find_all('div', attrs={'class': 'vv_body'})
         for source in div:
             src = source.find('source', attrs={'type': 'video/mp4'})['src']
-            print("\nВаша ссылка на скачивание: \n" + src)
+            print("\nТеперь видео доступно для скачивания: \n" + src)
     else:
         print('ERROR')
 
