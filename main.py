@@ -39,8 +39,10 @@ def vk_parse(base_url, headers):
         for source in div:
             src = source.find('source', attrs={'type': 'video/mp4'})['src']
             print("\nТеперь видео доступно для скачивания: \n" + src)
+
     else:
         print('ERROR')
 
 
 vk_parse(base_url, headers)
+input('\nНажмите Enter, чтобы закрыть программу')
